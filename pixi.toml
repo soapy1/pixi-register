@@ -1,0 +1,18 @@
+[workspace]
+authors = ["sophia <scastellarin@openteams.com>"]
+channels = ["conda-forge"]
+name = "pixi-register"
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[tasks]
+build = "cargo build"
+start = "cargo run"
+fmt = "cargo fmt --all"
+clippy = "cargo clippy --fix"
+
+[dependencies]
+rust = "==1.90.0"
+openssl = ">=3.5.4,<4"
+pkg-config = ">=0.29.2,<0.30"
+compilers = ">=1.11.0,<2"
