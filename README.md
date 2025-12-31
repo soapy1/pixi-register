@@ -1,12 +1,12 @@
 # pixi-register
 
-Register named pixi environments.
+Manage globally named environments.
 
 ```
- $ pixi register --help
-Register named environments
+ $ pixi register add --help
+Add an environment to the global registry
 
-Usage: pixi-register [OPTIONS] --name <NAME>
+Usage: pixi-register add [OPTIONS] --name <NAME>
 
 Options:
   -n, --name <NAME>                    Name of the environment to register
@@ -40,7 +40,7 @@ Register an environment. For example, how about this one. From the root of this 
 By default it will use the cwd.
 
 ```
-$ pixi register --name pixi-register
+$ pixi register add --name pixi-register
 
 $ $ cat ~/.pixi/register/environments.json
 [
