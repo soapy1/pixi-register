@@ -2,6 +2,7 @@ use clap::{Parser, Subcommand};
 
 use crate::cli::add;
 use crate::cli::list;
+use crate::cli::get;
 
 pub mod cli;
 
@@ -20,6 +21,9 @@ pub enum Command {
     /// Add an environment to the global registry
     Add(add::Args),
 
+    /// Get a registered environment by name
+    Get(get::Args),
+
     /// List all registered environments
     List(list::Args),
 }
@@ -31,6 +35,7 @@ pub async fn main() {
     if let Some(cmd) = cli.command {
         match cmd {
             Command::Add(cmd) => add::execute(cmd).await,
+            Command::Get(cmd) => get::execute(cmd).await,
             Command::List(cmd) => list::execute(cmd).await,
         }
     } else {
