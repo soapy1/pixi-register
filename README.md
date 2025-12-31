@@ -57,3 +57,23 @@ $ pixi register list
 Registered environments:
 * pixi-register: /home/sophia/projects/pixi-register
 ```
+
+### Activate environments by name
+
+Add the following shell function to your shell `rc` file in order to activate named environments
+(tested on zsh only!)
+
+```
+activate() {
+    local name="$1"
+    local env="${2:-default}"
+    local manifest_path="$(pixi register get ${name})"
+    pixi shell --manifest-path "${manifest_path}" --environment "${env}"
+}
+```
+
+Now, you can activate environments that have been registered with the `pixi register add` command:
+
+```
+$ activate pixi-register
+```
