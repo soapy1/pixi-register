@@ -50,3 +50,10 @@ $ $ cat ~/.pixi/register/environments.json
   }
 ]
 ```
+
+List all registered environments:
+```
+$ pixi register list
+Registered environments:
+* pixi-register: /home/sophia/projects/pixi-register
+```

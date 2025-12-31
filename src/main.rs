@@ -1,6 +1,7 @@
 use clap::{Parser, Subcommand};
 
 use crate::cli::add;
+use crate::cli::list;
 
 pub mod cli;
 
@@ -18,6 +19,9 @@ pub struct Cli {
 pub enum Command {
     /// Add an environment to the global registry
     Add(add::Args),
+
+    /// List all registered environments
+    List(list::Args),
 }
 
 #[tokio::main]
@@ -27,6 +31,7 @@ pub async fn main() {
     if let Some(cmd) = cli.command {
         match cmd {
             Command::Add(cmd) => add::execute(cmd).await,
+            Command::List(cmd) => list::execute(cmd).await,
         }
     } else {
         std::process::exit(2);
